@@ -6,7 +6,10 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Planets is ERC721, ERC721URIStorage, Ownable {
-    constructor() ERC721("Planets", "PLN") {}
+    constructor() ERC721("Planets", "PLN") {
+      _safeMint(msg.sender, 1);
+      _safeMint(msg.sender, 2);
+    }
 
     function _baseURI() internal pure override returns (string memory) {
         return "https://ipfs.io/ipfs/";
