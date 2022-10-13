@@ -7,8 +7,17 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Planets is ERC721, ERC721URIStorage, Ownable {
     constructor() ERC721("Planets", "PLN") {
-      _safeMint(msg.sender, 1);
-      _safeMint(msg.sender, 2);
+      _createPlanet(msg.sender, 1, "");
+      _createPlanet(msg.sender, 2, "");
+      _createPlanet(msg.sender, 3, "");
+      _createPlanet(msg.sender, 4, "");
+      _createPlanet(msg.sender, 5, "");
+   
+    }
+
+    function _createPlanet(address to, uint id, string memory url) private returns (bool) {
+      _safeMint(to, id);
+      return true;
     }
 
     function _baseURI() internal pure override returns (string memory) {
